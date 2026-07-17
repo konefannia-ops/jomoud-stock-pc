@@ -1,0 +1,31 @@
+{
+  "name": "jomoud-stock-retours",
+  "productName": "JOMOUD Stock & Retours",
+  "version": "1.0.0",
+  "description": "Gestion du stock, des dates d'expiration, des produits gâtés et des retours clients — JOMOUD Comércio Geral",
+  "main": "main.js",
+  "author": "JOMOUD",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.jomoud.stockretours",
+    "productName": "JOMOUD Stock & Retours",
+    "files": ["main.js", "index.html", "jspdf.umd.min.js", "build/icon.png"],
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "JOMOUD Stock"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+name: Construire logiciel Windows JOMOUD
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Compiler le logiciel (.exe)
+        run: npx electron-builder --win
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publier l'installateur
+        uses: actions/upload-artifact@v4
+        with:
+          name: JOMOUD-Stock-Windows
+          path: |
+            dist/*.exe
