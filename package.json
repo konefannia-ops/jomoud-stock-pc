@@ -17,10 +17,10 @@
   "build": {
     "appId": "com.jomoud.stockretours",
     "productName": "JOMOUD Stock & Retours",
-    "files": ["main.js", "index.html", "jspdf.umd.min.js", "build/icon.png"],
+    "files": ["main.js", "index.html", "jspdf.umd.min.js", "icon.png"],
     "win": {
       "target": ["nsis", "portable"],
-      "icon": "build/icon.ico"
+      "icon": "icon.ico"
     },
     "nsis": {
       "oneClick": true,
